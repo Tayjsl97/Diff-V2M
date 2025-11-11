@@ -3,7 +3,7 @@ This is the official implementation of **Diff-V2M (AAAI'26)**, which is a hierar
 - [Paper link](https://arxiv.org/abs/2312.10307)
 - Check our [demo page](https://tayjsl97.github.io/Diff-V2M-Demo/) and listen!<br>
 
-<img src="img/model.jpg" width="770" height="300" alt="model"/>
+<img src="img/model.jpg" width="770" height="400" alt="model"/>
 
 ## Reference
 If you find the code useful for your research, please consider citing
