@@ -1,4 +1,4 @@
-# Diff-V2M
+# Diff-V2M: A Hierarchical Conditional Diffusion Model with Explicit Rhythmic Modeling for Video-to-Music Generation
 This is the official implementation of **Diff-V2M (AAAI'26)**, which is a hierarchical diffusion model with explicit rhythmic modeling and multi-view feature conditioning, achieving state-of-the-art results in video-to-music generation.
 - [Paper](https://arxiv.org/abs/2312.10307)
 - Check our [demo page](https://tayjsl97.github.io/Diff-V2M-Demo/) and listen!🎧<br>
@@ -20,7 +20,8 @@ This is the official implementation of **Diff-V2M (AAAI'26)**, which is a hierar
   pip install -r requirements.txt
   ```
 ## Pretrained Weights
-Please download the Diff-V2M model checkpoint model.ckpt, put them into the directory './saved_model'.
+For training Diff-V2M from scratch, please download the [stable-audio-open-1.0 model](https://huggingface.co/stabilityai/stable-audio-open-1.0/resolve/main/model.safetensors), put them into the directory './saved_model/stable_audio/', 
+For inference with Diff-V2M, please download the Diff-V2M model checkpoint [model.ckpt](), put them into the directory './saved_model'.
 ```bash
   mkdir -p saved_model
   wget https://huggingface.co/TaylorJi/VidMuse/resolve/main/state_dict.bin -O model.ckpt
@@ -50,7 +51,7 @@ After data preprocessing, the json file of dataset looks like:
 ## Training
   Before running the training script, make sure to define the following parameters in `train.sh`:
 - `--model-config`
-  - Path to the model config file for a local model
+  - Path to the model config file for Diff-V2M
 - `--dataset-config`
   - Path to the dataset config file for training
 - `--val-dataset-config`
@@ -58,7 +59,7 @@ After data preprocessing, the json file of dataset looks like:
 - `--config-file`
   - The path to the defaults.ini file in the repo root, required if running `train.py` from a directory other than the repo root
 - `--pretransform-ckpt-path`
-  - Used in various model types such as latent diffusion models to load a pre-trained autoencoder. Requires an unwrapped model checkpoint.
+  - Used in various model types such as latent diffusion models to load a pre-trained autoencoder. Requires an unwrapped model checkpoint. For training Diff-V2M, this path is 'saved_models/stable_audio/model.safetensors'.
 - `--save-dir`
   - The directory in which to save the model checkpoints
 - `--checkpoint-every`
